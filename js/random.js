@@ -9,14 +9,14 @@ const gameResult = {
     }
 };
 
+const gameTimePerMin = 1.5;
+let game, timer;
+
 const wrapper = document.querySelector('#wrapper');
 const startBtn = document.querySelector('#start');
 const closeBtn = document.querySelector('.close');
 const timerWrapper = document.querySelector('#timer');
 const modal = document.querySelector('.modal');
-
-const gameTimePerMin = 0.1;
-let game, timer;
 
 function startGame() {
     game = new Game({ container: wrapper, maxValue: 25 });
@@ -172,7 +172,6 @@ class Cell {
             this._updateCell(Object.assign({}, cell, { checked: !cell.checked, bg: !cell.checked ? 'pink' : 'white' }));
             return;
         }
-        console.log(game._checkedCellCounter);
     }
 
     createElement(cell) {

@@ -70,6 +70,10 @@ p {
     color: rgb(99, 99, 99);
 }
 
+#timer span {
+    min-width: 75px;
+}
+
 #wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
