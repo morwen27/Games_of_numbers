@@ -1,5 +1,6 @@
 body {
     display: flex;
+    align-items: center;
     min-height: 100vh;
     margin: 0;
     font-family: 'Rubik', sans-serif;
@@ -7,7 +8,6 @@ body {
 
 .game_wrapper {
     width: 1024px;
-    min-height: 100vh;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -71,7 +71,9 @@ p {
 }
 
 #timer span {
-    min-width: 75px;
+    display: inline-block;
+    vertical-align: baseline;
+    min-width: 60px;
 }
 
 #wrapper {

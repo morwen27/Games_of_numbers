@@ -27,19 +27,19 @@ export default class Cell {
 
     checkCellHanler(cell) {
 
-        if (game._checkedCellCounter === 0 && cell.id === 1) {
-            game._checkedCellCounter++;
-            game._prevCheckedCell = cell.id;
+        if (game.checkedCellCounter === 0 && cell.id === 1) {
+            game.checkedCellCounter++;
+            game.prevCheckedCell = cell.id;
             this._updateCell(Object.assign({}, cell, { checked: !cell.checked, bg: !cell.checked ? 'pink' : 'white' }));
             return;
         }
 
-        if (game._checkedCellCounter >= 1 && cell.id === (game._prevCheckedCell + 1)) {
-            game._checkedCellCounter++;
+        if (game.checkedCellCounter >= 1 && cell.id === (game.prevCheckedCell + 1)) {
+            game.checkedCellCounter++;
 
-            if (game._checkedCellCounter === game.maxValue && timer.isCountdownOn) game.playerWin();
+            if (game.checkedCellCounter === game.maxValue && timer.isCountdownOn) game.playerWin();
 
-            game._prevCheckedCell = cell.id;
+            game.prevCheckedCell = cell.id;
             this._updateCell(Object.assign({}, cell, { checked: !cell.checked, bg: !cell.checked ? 'pink' : 'white' }));
             return;
         }

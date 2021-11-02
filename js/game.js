@@ -1,14 +1,11 @@
 import Cell from './cell.js';
 import { gameResult, game, timer, modal } from './main.js';
-import { getRandomIntInclusive, updateData } from './tools.js';
+import { getRandomIntInclusive, getRandomColor, getRandomSize, updateData } from './tools.js';
 
 export default class Game {
     constructor(options) {
         this.container = options.container;
         this.maxValue = options.maxValue;
-
-        this.fontSizes = [20, 22, 24, 28, 30, 32];
-        this.fontColor = ['brown', 'black', 'blue', 'green', 'rgb(240,113,9)', 'rgb(194,33,225)'];
 
         this._cellsData = {};
         this._cells = [];
@@ -17,8 +14,8 @@ export default class Game {
         this.generateNumbers(this.maxValue);
         this.generateCells(this.maxValue);
 
-        this._checkedCellCounter = 0;
-        this._prevCheckedCell = null;
+        this.checkedCellCounter = 0;
+        this.prevCheckedCell = null;
 
         this._checkedCellsHandler = this._checkedCellsHandler.bind(this);
     }
@@ -27,8 +24,8 @@ export default class Game {
         for (let i = 0; i < this._numbers.length; i++) {
             const cell = {
                 id: this._numbers[i],
-                fontSize: this.fontSizes[getRandomIntInclusive(0, this.fontSizes.length)] + 'px',
-                fontColor: this.fontColor[getRandomIntInclusive(0, this.fontColor.length)],
+                fontSize: getRandomSize() + 'px',
+                fontColor: getRandomColor(),
                 checked: false,
                 bg: this.checked ? 'pink' : 'white',
             }
@@ -55,9 +52,10 @@ export default class Game {
     }
 
     createMessage(text, result) {
-        const message = modal.querySelector('.message');
+        const message = modal.querySelector('p');
 
-        message.classList.add(`message__${result}`);
+        message.removeAttribute('class');
+        message.classList.add('message', `message__${result}`);
         message.textContent = `${text}`;
 
         modal.classList.remove('hide');

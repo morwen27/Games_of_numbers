@@ -4,6 +4,18 @@ export function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+export function getRandomColor() {
+    const r = getRandomIntInclusive(0, 256);
+    const g = getRandomIntInclusive(0, 256);
+    const b = getRandomIntInclusive(0, 256);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+export function getRandomSize() {
+    return getRandomIntInclusive(20, 32);
+}
+
 export const updateData = (items, update) => {
     const index = items.findIndex((item) => item.id === update.id);
 
