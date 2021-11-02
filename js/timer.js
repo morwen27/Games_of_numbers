@@ -27,8 +27,8 @@ export default class Timer {
     getTemplate(data) {
         let { minutes, seconds } = data;
 
-        if (+minutes < 10) minutes = `0${minutes}`;
-        if (+seconds < 10) seconds = `0${seconds}`;
+        if (minutes < 10) minutes = `0${minutes}`;
+        if (seconds < 10) seconds = `0${seconds}`;
 
         const el = document.createElement('p');
         el.innerHTML = `<span id="min">${minutes}</span> : <span id="sec">${seconds}</span>`;
