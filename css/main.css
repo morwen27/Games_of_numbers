@@ -1,0 +1,164 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.game_wrapper {
+    width: 1024px;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    margin: 50px auto 30px;
+    padding: 0 15px;
+}
+
+button {
+    display: flex;
+    padding: 15px 25px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer
+}
+
+button:hover,
+button:focus {
+    background: #fff;
+}
+
+p {
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro {
+    width: 50%;
+    margin: 0 0 25px;
+    padding: 0 15px;
+}
+
+.wrapper button {
+    margin: 0 25px;
+}
+
+.intro .rules {
+    margin: 0 0 25px;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    font-size: 42px;
+    font-weight: 700;
+    color: rgb(99, 99, 99);
+}
+
+#wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 3px;
+    padding: 3px;
+}
+
+#wrapper p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    border: 1px solid lightslategray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal {
+    width: fit-content;
+    padding: 10px;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+}
+
+.modal .message {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    padding: 30px 30px 30px 75px;
+    font-size: 46px;
+}
+
+.message__win::before,
+.message__lose::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+}
+
+.message__win {
+    color: rgb(194, 33, 225);
+}
+
+.message__win::before {
+    background: url(../img/win.svg) no-repeat 0 0;
+}
+
+.message__lose::before {
+    background: url(../img/lose.svg) no-repeat 0 0;
+}
+
+.modal button {
+    margin: 0 auto;
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    .game_wrapper {
+        width: 100%;
+    }
+    .intro {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .modal .message {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .modal .message {
+        font-size: 24px;
+    }
+}
